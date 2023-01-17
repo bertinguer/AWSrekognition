@@ -21,12 +21,13 @@ for target_image in os.listdir(target_folder):
     with open(target_folder + target_image, "rb") as image:
         target_bytes = image.read()
 
-    # Llamar a la API de AWS Rekognition para comparar las imágenes
+# Llamar a la API de AWS Rekognition para comparar las imágenes
     response = client.compare_faces(
         SourceImage={ "Bytes": source_bytes },
         TargetImage={ "Bytes": target_bytes }
     )
-    
+# Mostrar el tanto por ciento de similitud
+
     face_matches = response.get("FaceMatches")
     if face_matches:
         similarity = face_matches[0]["Similarity"]
