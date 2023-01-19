@@ -26,8 +26,8 @@ for target_image in os.listdir(target_folder):
         SourceImage={ "Bytes": source_bytes },
         TargetImage={ "Bytes": target_bytes }
     )
+    
 # Mostrar el tanto por ciento de similitud
-
     face_matches = response.get("FaceMatches")
     if face_matches:
         similarity = face_matches[0]["Similarity"]
